@@ -20,7 +20,7 @@ function scrapePageForEvents() {
     [...document.querySelector("table#tabhorarionew").querySelectorAll("tbody")[tbody_index].querySelectorAll("tr")].forEach((row, index) => {
         weekday_counter = 0;
         row.querySelectorAll(".cellborder").forEach((column, index) => {
-            while (overlap_counter[weekday_counter] > 0 || weekday_counter > overlap_counter.length) {
+            while (overlap_counter[weekday_counter] > 0 && weekday_counter > overlap_counter.length) {
                 weekday_counter = weekday_counter + 1;
             }
             if (column.querySelector('[name=descriptionDiv]').textContent.trim() !== "") {
